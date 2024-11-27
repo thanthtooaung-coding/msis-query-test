@@ -1,0 +1,72 @@
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">{{ title }}</h1>
+    
+    <div class="space-y-6">
+        <div class="border rounded-lg shadow-sm p-6">
+            <h2 class="text-xl font-bold mb-2">Question</h2>
+            <p>{{ question }}</p>
+        </div>
+
+        <div class="border rounded-lg shadow-sm p-6">
+            <h2 class="text-xl font-bold mb-2">Expected Output</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white">
+                    <thead>
+                    <tr>
+                        @for (header of tableHeaders; track header) {
+                            <th class="py-2 px-4 border-b text-left">{{ header }}</th>
+                        }
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @for (row of tableData; track $index) {
+                        <tr>
+                        @for (cell of row; track $index) {
+                            <td class="py-2 px-4 border-b">{{ cell }}</td>
+                        }
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="border rounded-lg shadow-sm p-6">
+            <h2 class="text-xl font-bold mb-2">SQL Query</h2>
+            <pre class="bg-gray-100 p-4 rounded-lg overflow-x-auto">{{ sqlQuery }}</pre>
+        </div>
+
+        <div class="border rounded-lg shadow-sm p-6">
+            <h2 class="text-xl font-bold mb-2">Output result from SQL Query</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white">
+                    <thead>
+                    <tr>
+                        @for (header of tableHeaders; track header) {
+                            <th class="py-2 px-4 border-b text-left">{{ header }}</th>
+                        }
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @for (row of tableData; track $index) {
+                        <tr>
+                        @for (cell of row; track $index) {
+                            <td class="py-2 px-4 border-b">{{ cell }}</td>
+                        }
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="border rounded-lg shadow-sm p-6">
+            <h2 class="text-xl font-bold mb-2">Thought Process</h2>
+            <ol class="list-decimal list-inside space-y-2">
+                @for (step of thoughtProcess; track $index) {
+                    <li>{{ step }}</li>
+                }
+            </ol>
+        </div>
+    </div>
+  </div>
